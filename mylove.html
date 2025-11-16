@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quer namorar comigo?</title>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff3b3b, #ff6b6b);
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .painel {
+            width: 90%;
+            max-width: 380px;
+            padding: 25px;
+            background-color: #fff;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .botoes {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        #sim, #nao {
+            height: 45px;
+            width: 120px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            transition: 0.2s;
+        }
+
+        #sim {
+            background-color: #ff3b3b;
+            color: white;
+        }
+
+        #sim:hover {
+            transform: scale(1.1);
+            background-color: #ff1f1f;
+        }
+
+        #nao {
+            background-color: #777;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="painel">
+        <h1>Senhorita Fabriele ❤️</h1>
+        <img src="https://i.pinimg.com/originals/66/ef/dd/66efdd8a4f27de3cc24e1a8e1e45c8f2.gif" alt="">
+        <h2>Aceita namorar comigo?</h2>
+
+        <div class="botoes">
+            <button id="sim" onclick="location.href='amor.html'">Sim 😁</button>
+            <button id="nao" onclick="fuja()">Não 😞</button>
+        </div>
+    </div>
+
+    <script>
+        let virouAbsoluto = false;
+
+        function fuja() {
+            const botaoNao = document.getElementById("nao");
+
+            // Primeira vez que ele tenta fugir → virar ABSOLUTO
+            if (!virouAbsoluto) {
+                botaoNao.style.position = "absolute";
+                virouAbsoluto = true;
+            }
+
+            const largura = window.innerWidth - botaoNao.offsetWidth;
+            const altura = window.innerHeight - botaoNao.offsetHeight;
+
+            botaoNao.style.left = Math.random() * largura + "px";
+            botaoNao.style.top = Math.random() * altura + "px";
+        }
+    </script>
+
+</body>
+</html>
